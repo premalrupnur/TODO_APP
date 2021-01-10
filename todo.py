@@ -8,7 +8,13 @@ import datetime
 def todo(args):
     # condition for displaying help
     if(args.o[0]=='help'):
-        help = "Usage :-\n$ ./todo add \"todo item\"  # Add a new todo\n$ ./todo ls               # Show remaining todos\n$ ./todo del NUMBER       # Delete a todo\n$ ./todo done NUMBER      # Complete a todo\n$ ./todo help             # Show usage\n$ ./todo report           # Statistics\n"
+        help = """Usage :-
+        $ ./todo add "todo item"  # Add a new todo
+        $ ./todo ls               # Show remaining todos
+        $ ./todo del NUMBER       # Delete a todo
+        $ ./todo done NUMBER      # Complete a todo
+        $ ./todo help             # Show usage
+        $ ./todo report           # Statistics"""
         return help
     
     # Addition of new todo
@@ -84,7 +90,14 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('o', nargs='+')
     if len(sys.argv)==1:
-        print("Usage :-\n$ ./todo add \"todo item\"  # Add a new todo\n$ ./todo ls               # Show remaining todos\n$ ./todo del NUMBER       # Delete a todo\n$ ./todo done NUMBER      # Complete a todo\n$ ./todo help             # Show usage\n$ ./todo report           # Statistics\n")
+        help = """Usage :-
+        $ ./todo add "todo item"  # Add a new todo
+        $ ./todo ls               # Show remaining todos
+        $ ./todo del NUMBER       # Delete a todo
+        $ ./todo done NUMBER      # Complete a todo
+        $ ./todo help             # Show usage
+        $ ./todo report           # Statistics"""
+        print(help)
         sys.exit(1)
     args=parser.parse_args()
     sys.stdout.write(str(todo(args)))
